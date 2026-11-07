@@ -10,7 +10,7 @@ on:
       archive:
         description: "Path to the site archive (.zip or .7z)"
         required: false
-        default: "site/site.zip"
+        default: "site/site.7z"
 
 permissions:
   contents: read
@@ -33,7 +33,7 @@ jobs:
 
       - name: Extract archive
         env:
-          ARCHIVE: ${{ inputs.archive || 'site/site.zip' }}
+          ARCHIVE: ${{ inputs.archive || 'site/site.7z' }}
         run: |
           set -euo pipefail
           shopt -s dotglob nullglob
